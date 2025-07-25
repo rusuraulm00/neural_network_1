@@ -4,6 +4,14 @@ def sigmoid(x):
     # functia de activare f(x) = 1 / (1 + e ^ (-x))
     return 1 / (1 + np.exp(-x))
 
+def deriv_sigmoid(x):
+    # derivata functiei f
+    fx = sigmoid(x)
+    return fx(1 - fx)
+
+def mse_loss(y_true, y_pred):
+    return ((y_true - y_pred) ** 2).mean()
+
 class Neuron:
     def __init__(self, weights, bias):
         self.weights = weights
